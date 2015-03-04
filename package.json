@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "browserify-pragma",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Jesse McCarthy (http://software.jessemccarthy.net/)",
+  "license": "MIT",
+  "dependencies": {
+    "readable-stream": "1.x"
+  }
+}
