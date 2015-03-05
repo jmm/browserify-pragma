@@ -36,7 +36,7 @@ BrowserifyPragma.generate = function (opts) {
 
   // Manually construct this as a string (instead of using JSON.stringify()) to
   // ensure property order.
-  return BrowserifyPragma.prototype.sample.replace(
+  return BrowserifyPragma.prototype.template.replace(
     'VERSION',
     opts.version
   );
@@ -63,20 +63,18 @@ Pragma.version = '123.456.789';
 // Max bytes that may precede pragma. 3 = max BOM length.
 Pragma.preMaxBytes = 3;
 
-Pragma.sample =
-  '({"compiler": "browserify", "version": "VERSION"});'.replace(
-    'VERSION',
-    Pragma.version
-  );
+Pragma.template = '({"compiler": "browserify", "version": "VERSION"});';
+
+Pragma.sample = Pragma.template.replace('VERSION', Pragma.version);
 
 Pragma.re = new RegExp(
   "^" +
   // BOM
   "\\uFEFF?" +
-  Pragma.sample
+  Pragma.template
     .replace(/[(){}]/g, '\\$&')
     .replace(
-      Pragma.version,
+      'VERSION',
       '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}'
     )
 );
