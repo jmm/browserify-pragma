@@ -104,7 +104,7 @@ Detector.prototype._transform = function _transform (chunk, enc, cb) {
       );
 
       pragma.detected = true;
-      pragma.rec.noparse = pragma.rec.noparse || pragma.present;
+      if (pragma.present) pragma.rec.noparse = pragma.present;
       pragma.done(pragma.present);
     }
   }
