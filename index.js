@@ -102,8 +102,7 @@ Detector.prototype._transform = function _transform (chunk, enc, cb) {
       );
 
       pragma.detected = true;
-      if (pragma.present) pragma.rec.noparse = pragma.present;
-      pragma.done(pragma.present);
+      pragma.done(pragma);
     }
   }
   this.push(chunk);
@@ -113,7 +112,7 @@ Detector.prototype._transform = function _transform (chunk, enc, cb) {
 
 Detector.prototype._flush = function _flush (cb) {
   // Source didn't contain enough bytes to test for pragma.
-  if (!this.pragma.detected) this.pragma.done(this.pragma.present);
+  if (!this.pragma.detected) this.pragma.done(this.pragma);
   this.pragma.src = [];
   cb();
 }
