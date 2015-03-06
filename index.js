@@ -12,7 +12,7 @@ var
 module.exports = BrowserifyPragma;
 
 function BrowserifyPragma (opts) {
-  if (! (this instanceof BrowserifyPragma)) return new BrowserifyPragma(opts);
+  if (!(this instanceof BrowserifyPragma)) return new BrowserifyPragma(opts);
   var self = this;
   opts = opts || {};
 

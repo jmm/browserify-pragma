@@ -1,10 +1,21 @@
 {
-  "private": true,
   "name": "browserify-pragma",
   "version": "0.1.0",
   "main": "index.js",
   "author": "Jesse McCarthy (http://software.jessemccarthy.net/)",
   "license": "MIT",
+  "files": [
+    "index.js",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmm/browserify-pragma.git"
+  },
+  "homepage": "https://github.com/jmm/browserify-pragma",
+  "description": "Generate and detect browserify pragmas.",
   "dependencies": {
     "readable-stream": "1.x"
   }
