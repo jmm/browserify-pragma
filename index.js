@@ -6,11 +6,15 @@ var
   rs = require('readable-stream'),
   util = require('util');
 
-// A full pragma looks like
-// `({"compiler": "browserify", "version": "1.23.456"});`
-
 module.exports = BrowserifyPragma;
 
+/**
+ * Implement browserify pragma handling logic. A pragma is a fragment that can
+ * be prepended to bundles and subsequently detected by browserify during
+ * bundling to apply appropriate handling to the module, e.g. omitting parsing
+ * for `require()` calls. A pragma looks like (backticks not literal):
+ * `({"compiler": "browserify", "version": "1.23.456"});`
+ */
 function BrowserifyPragma (opts) {
   if (!(this instanceof BrowserifyPragma)) return new BrowserifyPragma(opts);
   var self = this;
